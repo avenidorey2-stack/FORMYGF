@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>I Love You Always, Langga ♡</title>
+<meta name="description" content="A private little memory wall.">
+<meta name="theme-color" content="#fff3f8">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="noise"></div>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+<div id="floatingHearts" aria-hidden="true"></div>
+<audio id="bgMusic" preload="auto" playsinline></audio>
+
+<div id="lockGate">
+ <video class="bg-video-overlay" id="bgVideo" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+ <div class="bg-scrim"></div>
+ <section class="pin-shell" id="pinShell">
+  <p class="pin-kicker">A PRIVATE LITTLE MEMORY PAGE</p>
+  <h1>I Love You<span class="small">Always, Langga ♡</span></h1>
+  <p class="pin-sub">This page is locked just for you. Enter the 6-digit PIN to open the memories.</p>
+  <div class="pin-box">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 1">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 2">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 3">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 4">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 5">
+   <input class="pin-digit" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="PIN digit 6">
+  </div>
+  <button class="pin-enter" id="enterPin" type="button">OPEN MY LETTER</button>
+  <div class="pin-error" id="pinError" aria-live="polite"></div>
+  <p class="pin-note">A wrong PIN will keep the memories locked.</p>
+ </section>
+ <img class="deco-sticker deco-1" id="decoImg1" src="" alt="" style="--rot:-6deg">
+ <img class="deco-sticker deco-2" id="decoImg2" src="" alt="" style="--rot:9deg">
+</div>
+
+<main id="wallContent">
+ <section class="hero reveal">
+  <p class="kicker">YOU MADE IT ♡</p>
+  <h1>I Love You Always<span class="script">Langga ♡</span></h1>
+  <p class="hero-sub" id="heroSub">Here are the little memories I kept for you.</p>
+ </section>
+
+ <section class="letter reveal">
+  <div class="letter-paper">
+   <div class="stamp">OPENED WITH LOVE ♡</div>
+   <p class="date-line">A tiny page for some very good memories.</p>
+   <h2>Just thinking about you<br>makes me smile.</h2>
+   <p class="message">I kept these here because some moments are too good to let disappear into a camera roll. The school days, random selfies, celebrations, awkward poses, quiet nights, and all the silly little moments in between — they all became pieces of a story worth remembering.</p>
+   <p class="message">Take your time with them. ♡</p>
+   <div class="signature">— always rooting for the good days</div>
+  </div>
+ </section>
+
+ <div class="player-wrap reveal">
+  <div class="player-card" id="playerCard">
+   <div class="player-top">
+    <div class="player-art" id="playerArt"><img src="" alt="" id="playerArtImg" class="spin"></div>
+    <div class="player-meta">
+     <div class="player-title">Pag-Ibig ay Kanibalismo II</div>
+     <div class="player-sub">our song, on loop ♡</div>
+    </div>
+    <div class="player-eq" aria-hidden="true"><span></span><span></span><span></span></div>
+   </div>
+   <div class="player-transport">
+    <button class="transport-btn" id="musicLoop" type="button" aria-label="Loop music on" aria-pressed="true">
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+    </button>
+    <button class="transport-btn play-btn" id="musicPlay" type="button" aria-label="Play music" aria-pressed="false">
+     <svg id="playIconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+     <svg id="playIconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <div class="volume-ctl" id="volumeCtl">
+     <button class="transport-btn" id="musicMute" type="button" aria-label="Mute music" aria-pressed="false" aria-haspopup="true" aria-expanded="false">
+      <svg id="volIconHigh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+      <svg id="volIconLow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+      <svg id="volIconMute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
+     </button>
+     <div class="volume-flyout" id="volumeFlyout">
+      <input id="musicVolume" class="music-volume-input" type="range" min="0" max="100" step="1" value="100" aria-label="Music volume">
+     </div>
+    </div>
+   </div>
+   <div class="player-seek">
+    <input id="musicSeek" class="music-seek-input" type="range" min="0" max="0" step="0.01" value="0" aria-label="Seek through the song">
+    <div class="music-time-row"><span id="musicCurrentTime">0:00</span><span id="musicDuration">0:00</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="lyrics-stage reveal"><div class="lyrics-line idle" id="liveLyric"><span class="base">tap play, and listen with me</span></div></div>
+
+ <section class="section-heading reveal">
+  <p class="kicker">THE MEMORY WALL</p>
+  <h2>little moments, all in one place.</h2>
+  <p class="photo-count" id="photoCountBadge">memories ♡</p>
+  <p>Tap any memory to make it bigger. Filter by album, or start one of your own.</p>
+ </section>
+
+ <div class="memory-filters reveal" id="memoryFilters"></div>
+ <div class="new-album-row" id="newAlbumRow" style="display:none">
+  <input type="text" id="newAlbumInput" placeholder="Name this album…" maxlength="28">
+  <button type="button" id="newAlbumConfirm">Create</button>
+  <button type="button" class="cancel-add" id="newAlbumCancel">Cancel</button>
+ </div>
+
+ <div class="featured-wrap reveal">
+  <div class="featured-card" id="featuredCard">
+   <img id="featuredImage" src="" alt="Featured memory">
+   <div class="featured-overlay">
+    <div><span>MEMORY</span><strong id="featuredNumber">01</strong></div>
+    <button class="circle-btn" id="nextFeatured" aria-label="Next memory" type="button">→</button>
+   </div>
+  </div>
+ </div>
+
+ <div class="add-memory-row reveal">
+  <button class="add-memory-btn" id="openUpload" type="button">
+   <span class="plus-badge">+</span>
+   <span>Add new memories<span class="add-memory-sub">Photos or videos — saved right here, anytime</span></span>
+  </button>
+ </div>
+
+ <div class="photo-panel reveal">
+  <div class="photo-grid" id="photoGrid"></div>
+ </div>
+
+ <section class="notes-section reveal">
+  <p class="kicker">LITTLE NOTES</p>
+  <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,4.5vw,40px);margin:8px 0 4px;letter-spacing:-.02em">just for you ♡</h2>
+  <p style="color:var(--muted);font-size:14px;margin:0">Tap a note to read it up close.</p>
+  <div class="notes-grid" id="notesGrid"></div>
+ </section>
+
+ <section class="ending reveal">
+  <div class="ending-card">
+   <div class="big-heart">♥</div>
+   <p class="kicker">END OF THE LETTER</p>
+   <h2>Keep these days close.</h2>
+   <p>Some memories are ordinary when they happen — and priceless once you look back.</p>
+   <button class="scroll-btn light" id="againBtn" type="button">Back to the beginning ↑</button>
+  </div>
+ </section>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+ <button class="lb-close" id="lbClose" aria-label="Close" type="button">×</button>
+ <button class="lb-delete" id="lbDelete" aria-label="Delete this memory" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
+ </button>
+ <button class="lb-nav left" id="lbPrev" aria-label="Previous" type="button">‹</button>
+ <figure>
+  <img id="lbImage" alt="" style="display:none">
+  <video id="lbVideo" controls playsinline style="display:none"></video>
+  <figcaption><span id="lbCount">01</span><span class="slash">/</span><span id="lbTotal">40</span><span class="cap-text" id="lbCaption"></span></figcaption>
+ </figure>
+ <button class="lb-nav right" id="lbNext" aria-label="Next" type="button">›</button>
+</div>
+
+<div class="note-zoom" id="noteZoom" aria-hidden="true">
+ <div class="note-zoom-card" id="noteZoomCard" role="dialog" aria-modal="true" aria-label="Note">
+  <button class="note-zoom-close" id="noteZoomClose" aria-label="Close note" type="button">×</button>
+  <span class="note-zoom-icon" id="noteZoomIcon">♡</span>
+  <p id="noteZoomText"></p>
+  <small id="noteZoomSmall"></small>
+ </div>
+</div>
+
+<div class="upload-modal" id="uploadModal" aria-hidden="true">
+ <div class="upload-card" role="dialog" aria-modal="true" aria-label="Add new memories">
+  <button class="upload-close" id="uploadClose" aria-label="Close" type="button">×</button>
+  <h3>Add new memories</h3>
+  <p class="upload-sub">Photos or videos, dropped right onto the wall.</p>
+  <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Choose photos or videos">
+   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4"/><path d="M6 9l6-6 6 6"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+   <strong>Drop photos or videos here</strong>
+   <span>or tap to browse your device</span>
+   <input type="file" id="fileInput" accept="image/*,video/*" multiple class="visually-hidden">
+  </div>
+  <div class="file-preview-list" id="filePreviewList"></div>
+  <span class="field-label">Add to album (optional)</span>
+  <div class="album-chips" id="uploadAlbumChips"></div>
+  <div class="new-album-row" id="uploadNewAlbumRow" style="display:none">
+   <input type="text" id="uploadNewAlbumInput" placeholder="Name this album…" maxlength="28">
+   <button type="button" id="uploadNewAlbumConfirm">Add</button>
+   <button type="button" class="cancel-add" id="uploadNewAlbumCancel">Cancel</button>
+  </div>
+  <textarea class="upload-caption" id="uploadCaption" rows="2" maxlength="140" placeholder="A little caption (optional)"></textarea>
+  <button class="upload-submit" id="uploadSubmit" type="button" disabled>Add to the wall 🌷</button>
+  <p class="upload-hint">Saved privately in this browser, so it's here whenever you come back.</p>
+ </div>
+</div>
+
+<div class="confirm-modal" id="confirmModal" aria-hidden="true">
+ <div class="confirm-card" role="alertdialog" aria-modal="true" aria-label="Confirm">
+  <p id="confirmMessage"></p>
+  <div class="confirm-actions">
+   <button type="button" id="confirmCancel" class="confirm-btn confirm-cancel">Cancel</button>
+   <button type="button" id="confirmOk" class="confirm-btn confirm-danger">Delete</button>
+  </div>
+ </div>
+</div>
+
+<div class="confirm-modal" id="albumDeleteModal" aria-hidden="true">
+ <div class="confirm-card" role="alertdialog" aria-modal="true" aria-labelledby="albumDeleteTitle" aria-describedby="albumDeleteMessage">
+  <h3 class="confirm-title" id="albumDeleteTitle">Delete this album?</h3>
+  <p class="confirm-sub" id="albumDeleteMessage"></p>
+  <div class="confirm-stack">
+   <button type="button" id="albumDeleteOnly" class="confirm-btn confirm-dark">Delete album, keep memories</button>
+   <button type="button" id="albumDeleteAll" class="confirm-btn confirm-danger">Delete album and memories</button>
+   <button type="button" id="albumDeleteCancel" class="confirm-btn confirm-cancel">Cancel</button>
+  </div>
+ </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
